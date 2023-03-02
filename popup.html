@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ham Call Lookup</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <div class="popup">
+    <h1>Ham Call Lookup</h1>
+    <label for="callsign-input">Enter a call sign:</label>
+    <input type="text" id="callsign-input">
+    <button id="lookup-button">Lookup</button>
+    <div id="results"></div>
+    <button id="about-button">About</button>
+  </div>
+  <div id="about-popup" class="popup hidden">
+    <h1>About Ham Call Lookup</h1>
+    <p>Ham Call Lookup is an extension for looking up ham radio call signs from the hamdb.org API.</p>
+    <p>API provided by <a href="https://hamdb.org" target="_blank">hamdb.org</a>.</p>
+    <button id="close-button">Close</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>
