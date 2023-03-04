@@ -13,7 +13,6 @@
     "128": "/assets/icon96.png"
   },
   "host_permissions": ["https://hamdb.org/*"],
-  "permissions": ["activeTab", "scripting"],
   "action": {
     "default_title": "Ham Call Lookup",
     "default_popup": "popup.html"
