@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "Ham Call Lookup",
-  "version": "1.0.1",
-  "description": "Lookup a ham radio call sign.",
+  "version": "2.0.0",
+  "description": "Lookup a ham radio call sign with map, history, QRZ linking and dark mode.",
   "author": {
     "name": "KF7SIW",
     "url": "https://kf7siw.com"
@@ -12,13 +12,20 @@
     "48": "/assets/icon32.png",
     "128": "/assets/icon96.png"
   },
-  "host_permissions": ["https://hamdb.org/*"],
+  "host_permissions": [
+    "https://hamdb.org/*",
+    "https://www.qrz.com/*"
+  ],
+  "permissions": [
+    "storage",
+    "tabs"
+  ],
   "action": {
     "default_title": "Ham Call Lookup",
     "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "js/background.js",
     "type": "module"
   }
 }

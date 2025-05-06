@@ -4,25 +4,68 @@
 <head>
   <meta charset="UTF-8">
   <title>Ham Call Lookup</title>
-  <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="lib/leaflet.css">
 </head>
 
 <body>
-  <div class="popup">
-    <h1>Ham Call Lookup</h1>
-    <label for="callsign-input">Enter a call sign:</label>
-    <input type="text" id="callsign-input">
-    <button id="lookup-button">Lookup</button>
-    <div id="results"></div>
-    <button id="about-button">About</button>
+  <div class="popup" id="main-popup">
+    <div class="header">
+      <h1>Ham Call Lookup</h1>
+      <div class="theme-toggle">
+        <button id="theme-toggle-btn" title="Toggle Dark Mode">🌙</button>
+      </div>
+    </div>
+
+    <div class="search-container">
+      <input type="text" id="callsign-input" placeholder="Enter callsign (e.g., KF7SIW)">
+      <button id="lookup-button">Lookup</button>
+    </div>
+
+    <div id="results-container">
+      <div id="results" class="hidden"></div>
+      <div class="external-links hidden" id="external-links">
+        <a id="qrz-link" href="#" target="_blank">View on QRZ.com</a>
+        <a id="gmaps-link" href="#" target="_blank">Get Directions</a>
+      </div>
+      <div id="map-container" class="hidden">
+        <div id="map"></div>
+        <button id="expand-map" class="map-control-button" title="Expand Map">⤢</button>
+      </div>
+      <div id="full-map-container" class="hidden">
+        <div id="full-map"></div>
+        <button id="close-full-map" class="map-control-button right" title="Close Map">✕</button>
+      </div>
+    </div>
+
+    <div class="history-container">
+      <h3>Recent Lookups</h3>
+      <ul id="history-list"></ul>
+      <button id="clear-history" class="small-button">Clear History</button>
+    </div>
+
+    <div class="footer">
+      <button id="about-button" class="text-button">About</button>
+    </div>
   </div>
+
   <div id="about-popup" class="popup hidden">
-    <h1>About Ham Call Lookup</h1>
-    <p>Ham Call Lookup is an extension for looking up ham radio call signs from the hamdb.org API.</p>
-    <p>API provided by <a href="https://hamdb.org" target="_blank">hamdb.org</a>.</p>
-    <button id="close-button">Close</button>
+    <div class="header">
+      <h1>About Ham Call Lookup</h1>
+    </div>
+    <div class="about-content">
+      <p>Ham Call Lookup is an extension for looking up amateur radio call signs using the hamdb.org API.</p>
+      <p>API provided by <a href="https://hamdb.org" target="_blank">hamdb.org</a>.</p>
+      <p>Map data shows the operator's grid square location when available.</p>
+      <p>Cross-reference with QRZ.com for additional operator information.</p>
+    </div>
+    <div class="footer">
+      <button id="close-button">Close</button>
+    </div>
   </div>
-  <script src="popup.js"></script>
+
+  <script src="lib/leaflet.js"></script>
+  <script type="module" src="js/popup.js"></script>
 </body>
 
 </html>
